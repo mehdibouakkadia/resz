@@ -1,4 +1,3 @@
-import { useResizeContext } from './context'
 import type { PanelProps } from './types'
 import './style.css'
 
