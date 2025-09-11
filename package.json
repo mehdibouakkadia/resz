@@ -1,0 +1,50 @@
+{
+  "name": "resz",
+  "version": "0.1.2",
+  "description": "Spring physics resize component for React",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc && vite build",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "link:dev": "npm run build && npm link"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "keywords": [
+    "react",
+    "resize",
+    "spring",
+    "physics",
+    "animation"
+  ],
+  "author": "mehdibouakkadia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehdibouakkadia/resz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mehdibouakkadia/resz/issues"
+  },
+  "homepage": "https://github.com/mehdibouakkadia/resz#readme"
+}

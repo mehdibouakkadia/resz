@@ -1,0 +1,65 @@
+.resize-root {
+  position: relative;
+  display: block;
+  background: #0f0f10;
+  border: 1px solid rgba(38,38,36,0.6);
+  border-radius: 8px;
+  overflow: visible;
+  will-change: width, height;
+}
+
+.resize-panel {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+  box-shadow: 0 1px 2px rgba(0,0,0,0.35);
+  opacity: 0.85;
+  z-index: 10;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.resize-handle:hover {
+  transform: scale(1.06);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+}
+
+/* directional positions */
+.resize-handle[data-dir="n"] { cursor: n-resize; left: 50%; top: -7px; transform: translateX(-50%); }
+.resize-handle[data-dir="s"] { cursor: s-resize; left: 50%; bottom: -7px; transform: translateX(-50%); }
+.resize-handle[data-dir="e"] { cursor: e-resize; right: -7px; top: 50%; transform: translateY(-50%); }
+.resize-handle[data-dir="w"] { cursor: w-resize; left: -7px; top: 50%; transform: translateY(-50%); }
+.resize-handle[data-dir="ne"] { cursor: ne-resize; right: -7px; top: -7px; }
+.resize-handle[data-dir="nw"] { cursor: nw-resize; left: -7px; top: -7px; }
+.resize-handle[data-dir="se"] { cursor: se-resize; right: -7px; bottom: -7px; }
+.resize-handle[data-dir="sw"] { cursor: sw-resize; left: -7px; bottom: -7px; }
+
+/* Hover state overrides for centered handles */
+.resize-handle[data-dir="n"]:hover,
+.resize-handle[data-dir="s"]:hover { transform: translateX(-50%) scale(1.06); }
+.resize-handle[data-dir="e"]:hover,
+.resize-handle[data-dir="w"]:hover { transform: translateY(-50%) scale(1.06); }
+.resize-handle[data-dir="ne"]:hover,
+.resize-handle[data-dir="nw"]:hover,
+.resize-handle[data-dir="se"]:hover,
+.resize-handle[data-dir="sw"]:hover { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .resize-handle {
+    transition: none;
+  }
+  .resize-handle:hover {
+    transform: none;
+  }
+  .resize-handle[data-dir="n"]:hover,
+  .resize-handle[data-dir="s"]:hover { transform: translateX(-50%); }
+  .resize-handle[data-dir="e"]:hover,
+  .resize-handle[data-dir="w"]:hover { transform: translateY(-50%); }
+}

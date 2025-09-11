@@ -1,0 +1,35 @@
+# Development
+node_modules/
+.git/
+.gitignore
+.eslintrc
+.eslintignore
+.prettierrc
+.prettierignore
+.editorconfig
+.vscode/
+.idea/
+*.log
+
+# Source
+src/
+lib/
+examples/
+test/
+tests/
+__tests__/
+coverage/
+.nyc_output/
+
+# Config files
+tsconfig*.json
+vite.config.ts
+.env*
+*.config.js
+
+# Documentation
+docs/
+PROGRESS.md
+
+# Build artifacts
+*.tsbuildinfo
