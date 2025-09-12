@@ -83,4 +83,17 @@ Next:
 - Add constraints API (min/max, aspect ratio)
 - Add sound integration
 
+### Version 0.2.0: Breaking Changes
 
+- **Removed anchor prop**: The `anchor` prop has been removed as most users work with pre-positioned elements. All resize handles now behave consistently:
+  - East handles grow right
+  - West handles grow left
+  - South handles grow down
+  - North handles grow up
+  - The component no longer restricts resize directions based on anchoring
+
+- **Removed default styling**: The `.resize-root` class no longer applies any visual styling (background, border, border-radius). This gives users full control over the appearance of their resizable components.
+
+Migration: 
+- Remove the `anchor` prop from your `<Resize>` components
+- If you were relying on the default dark background/border styling, add your own styles to the component

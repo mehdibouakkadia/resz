@@ -63,7 +63,6 @@ export type ResizeProps = {
   style?: React.CSSProperties
   config?: SpringConfig
   preset?: ResizePreset
-  anchor?: Direction
   constraints?: Constraints
   snap?: SnapConfig
   onResize?: (dims: Dimensions) => void

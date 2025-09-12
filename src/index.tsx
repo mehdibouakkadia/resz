@@ -116,7 +116,6 @@ export function Resize({
   style,
   config,
   preset = 'professional',
-  anchor,
   constraints,
   snap,
   onResize,
@@ -258,24 +257,20 @@ export function Resize({
 
       // Handle width changes
       if (dir.includes('e')) {
-        // East handles can always grow right
+        // East handles grow right
         newW = dragStartRef.current.targetW + dx
       } else if (dir.includes('w')) {
-        // West handles can grow left unless anchored
-        if (anchor !== 'nw' && anchor !== 'w' && anchor !== 'sw') {
-          newW = dragStartRef.current.targetW - dx
-        }
+        // West handles grow left
+        newW = dragStartRef.current.targetW - dx
       }
 
       // Handle height changes
       if (dir.includes('s')) {
-        // South handles can always grow down
+        // South handles grow down
         newH = dragStartRef.current.targetH + dy
       } else if (dir.includes('n')) {
-        // North handles can grow up unless anchored
-        if (anchor !== 'n' && anchor !== 'ne' && anchor !== 'nw') {
-          newH = dragStartRef.current.targetH - dy
-        }
+        // North handles grow up
+        newH = dragStartRef.current.targetH - dy
       }
 
       // Apply snapping (increment only)

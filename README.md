@@ -16,7 +16,7 @@
 - **🎨 Customizable Physics**: Fine-tune spring parameters (tension, friction, mass) or use presets for the perfect feel
 - **📐 Multi-directional**: Resize from any edge or corner with proper cursor indicators
 - **🔒 Smart Constraints**: Set min/max dimensions and maintain aspect ratios effortlessly
-- **📍 Precise Control**: Optional grid snapping and anchoring for pixel-perfect results
+- **📍 Precise Control**: Optional grid snapping for pixel-perfect results
 - **💅 Flexible Styling**: Style handles with CSS or provide custom React components
 
 ## Quick Start
@@ -103,20 +103,6 @@ Keep dimensions within bounds and snap to a grid:
 />
 ```
 
-### Anchored Resizing
-
-Control how the panel grows with the `anchor` prop:
-
-```jsx
-// Grow southward from the north edge
-<Resize anchor="n">
-  <Resize.Panel>
-    <div>Content</div>
-  </Resize.Panel>
-  <Resize.Handle dir="s" />
-</Resize>
-```
-
 ## API Reference
 
 ### Resize Component
@@ -127,7 +113,6 @@ Control how the panel grows with the `anchor` prop:
 | `initialHeight` | number | `200` | Initial height in pixels |
 | `preset` | "gentle" \| "professional" \| "snappy" | "professional" | Spring physics preset |
 | `config` | { tension: number, friction: number, mass: number } | - | Custom spring configuration |
-| `anchor` | "n" \| "s" \| "e" \| "w" \| "ne" \| "nw" \| "se" \| "sw" | - | Growth direction |
 | `constraints` | { min?: { width?: number, height?: number }, max?: { width?: number, height?: number }, aspectRatio?: number } | - | Size constraints |
 | `snap` | { increment: number, threshold: number } | - | Grid snapping config |
 | `style` | CSSProperties | - | Container styles |
