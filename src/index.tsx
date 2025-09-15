@@ -109,7 +109,7 @@ export function Resize({
   className,
   style,
   config,
-  preset = 'professional',
+  preset = 'smooth',
   constraints,
   snapIncrement,
   onResize,

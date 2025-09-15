@@ -14,6 +14,6 @@ export function useResizeContext() {
 // Spring presets tuned for different feels
 export const PRESETS = {
   gentle: { tension: 220, friction: 30, mass: 1 },
-  professional: { tension: 320, friction: 26, mass: 1 },
+  smooth: { tension: 320, friction: 26, mass: 1 },
   snappy: { tension: 460, friction: 30, mass: 1 },
 } as const

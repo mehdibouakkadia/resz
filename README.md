@@ -31,7 +31,7 @@ import 'resz/dist/style.css'
 
 function App() {
   return (
-    <Resize preset="professional">
+    <Resize preset="smooth">
       <Resize.Panel>
         <div>Resizable Content</div>
       </Resize.Panel>
@@ -46,12 +46,12 @@ function App() {
 Choose from three carefully tuned presets or customize your own:
 
 - **gentle**: Soft, smooth motion with less resistance
-- **professional**: Balanced feel for precise control (default)
+- **smooth**: Balanced feel for precise control (default)
 - **snappy**: Quick response with minimal oscillation
 
 ```jsx
 // Using a preset
-<Resize preset="professional" />
+<Resize preset="smooth" />
 
 // Custom physics
 <Resize config={{ tension: 170, friction: 26, mass: 1 }} />
@@ -108,7 +108,7 @@ Keep dimensions within bounds and snap to a grid:
 |------|------|---------|-------------|
 | `initialWidth` | number | `300` | Initial width in pixels |
 | `initialHeight` | number | `200` | Initial height in pixels |
-| `preset` | "gentle" \| "professional" \| "snappy" | "professional" | Spring physics preset |
+| `preset` | "gentle" \| "smooth" \| "snappy" | "smooth" | Spring physics preset |
 | `config` | { tension: number, friction: number, mass: number } | - | Custom spring configuration |
 | `constraints` | { min?: { width?: number, height?: number }, max?: { width?: number, height?: number }, aspectRatio?: number } | - | Size constraints |
 | `snapIncrement` | number | - | Grid size for snapping (e.g., 40 for 40px grid) |

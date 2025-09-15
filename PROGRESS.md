@@ -115,3 +115,17 @@ Migration:
 To update from v0.2.0:
 - Replace `snap={{ increment: X }}` with `snapIncrement={X}`
 - Remove any `threshold` values as they are no longer supported
+
+## v0.4.0 (2025-09-15)
+
+### Breaking Changes
+
+- **Renamed preset**: The `professional` preset has been renamed to `smooth`
+  - Before: `<Resize preset="professional" />`
+  - After: `<Resize preset="smooth" />`
+  - The default preset is now `smooth` (previously `professional`)
+
+### Migration
+
+To update from v0.3.0:
+- Replace `preset="professional"` with `preset="smooth"`

@@ -1,6 +1,6 @@
 {
   "name": "resz",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Spring physics resize component for React",
   "type": "module",
   "main": "dist/index.js",

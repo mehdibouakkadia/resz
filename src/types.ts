@@ -4,7 +4,7 @@ export type SpringConfig = {
   mass?: number
 }
 
-export type ResizePreset = 'gentle' | 'professional' | 'snappy'
+export type ResizePreset = 'gentle' | 'smooth' | 'snappy'
 
 export type Direction = 'n' | 's' | 'e' | 'w' | 'ne' | 'nw' | 'se' | 'sw'
 
