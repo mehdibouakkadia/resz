@@ -16,7 +16,7 @@
 - **🎨 Customizable Physics**: Fine-tune spring parameters (tension, friction, mass) or use presets for the perfect feel
 - **📐 Multi-directional**: Resize from any edge or corner with proper cursor indicators
 - **🔒 Smart Constraints**: Set min/max dimensions and maintain aspect ratios effortlessly
-- **📍 Precise Control**: Optional grid snapping for pixel-perfect results
+- **📍 Grid Snapping**: Optional grid alignment for pixel-perfect layouts
 - **💅 Flexible Styling**: Style handles with CSS or provide custom React components
 
 ## Quick Start
@@ -85,7 +85,7 @@ Style handles with CSS or provide your own components:
 />
 ```
 
-### Constraints & Snapping
+### Constraints & Grid Snapping
 
 Keep dimensions within bounds and snap to a grid:
 
@@ -96,10 +96,7 @@ Keep dimensions within bounds and snap to a grid:
     max: { width: 800, height: 600 },
     aspectRatio: 16/9
   }}
-  snap={{
-    increment: 40,  // Snap to 40px grid
-    threshold: 15   // Snap within 15px
-  }}
+  snapIncrement={40}  // Always snap to 40px grid
 />
 ```
 
@@ -114,7 +111,7 @@ Keep dimensions within bounds and snap to a grid:
 | `preset` | "gentle" \| "professional" \| "snappy" | "professional" | Spring physics preset |
 | `config` | { tension: number, friction: number, mass: number } | - | Custom spring configuration |
 | `constraints` | { min?: { width?: number, height?: number }, max?: { width?: number, height?: number }, aspectRatio?: number } | - | Size constraints |
-| `snap` | { increment: number, threshold: number } | - | Grid snapping config |
+| `snapIncrement` | number | - | Grid size for snapping (e.g., 40 for 40px grid) |
 | `style` | CSSProperties | - | Container styles |
 | `onResize` | (width: number, height: number, isDragging: boolean) => void | - | Resize callback |
 

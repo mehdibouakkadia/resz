@@ -78,34 +78,28 @@ function applyConstraints(
   return [w, h]
 }
 
-function findSnapPoint(value: number, points: number[] = [], increment?: number, threshold = 5): number {
-  let result = value
-  let minDiff = Infinity
-  let closestPoint = value
-
-  // Check snap points
+function findSnapPoint(value: number, points: number[] = [], increment?: number): number {
+  // Check snap points first (exact snap points take priority)
   if (points.length > 0) {
+    let minDiff = Infinity
+    let closestPoint = value
+    
     for (const point of points) {
       const diff = Math.abs(value - point)
-      if (diff <= threshold && diff < minDiff) {
+      if (diff < minDiff) {
         minDiff = diff
         closestPoint = point
       }
     }
-    if (minDiff < Infinity) {
-      return closestPoint
-    }
+    return closestPoint
   }
 
-  // Check increment
+  // Check grid increment
   if (increment && increment > 1) {
-    const rounded = Math.round(value / increment) * increment
-    if (Math.abs(value - rounded) <= threshold) {
-      return rounded
-    }
+    return Math.round(value / increment) * increment
   }
 
-  return result
+  return value
 }
 
 export function Resize({
@@ -117,7 +111,7 @@ export function Resize({
   config,
   preset = 'professional',
   constraints,
-  snap,
+  snapIncrement,
   onResize,
 }: ResizeProps) {
   const frameRef = useRef<number | null>(null)
@@ -273,10 +267,10 @@ export function Resize({
         newH = dragStartRef.current.targetH - dy
       }
 
-      // Apply snapping (increment only)
-      if (snap?.increment) {
-        const snapW = findSnapPoint(newW, undefined, snap.increment, snap.threshold)
-        const snapH = findSnapPoint(newH, undefined, snap.increment, snap.threshold)
+      // Apply grid snapping
+      if (snapIncrement) {
+        const snapW = findSnapPoint(newW, undefined, snapIncrement)
+        const snapH = findSnapPoint(newH, undefined, snapIncrement)
         
         if (snapW !== newW) {
           stateRef.current.width.velocity = 0 // Reset velocity for snappy feel

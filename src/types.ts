@@ -46,14 +46,6 @@ export type Constraints = {
   aspectRatio?: number
 }
 
-export type SnapConfig = {
-  points?: {
-    width?: number[]
-    height?: number[]
-  }
-  increment?: number
-  threshold?: number // Distance in pixels to snap (default: 5)
-}
 
 export type ResizeProps = {
   children: React.ReactNode
@@ -64,7 +56,7 @@ export type ResizeProps = {
   config?: SpringConfig
   preset?: ResizePreset
   constraints?: Constraints
-  snap?: SnapConfig
+  snapIncrement?: number
   onResize?: (dims: Dimensions) => void
 }
 

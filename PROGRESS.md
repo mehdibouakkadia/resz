@@ -97,3 +97,21 @@ Next:
 Migration: 
 - Remove the `anchor` prop from your `<Resize>` components
 - If you were relying on the default dark background/border styling, add your own styles to the component
+
+## v0.3.0 (2025-09-15)
+
+### Breaking Changes
+
+- **Simplified snap API**: Changed from nested `snap` object to direct `snapIncrement` prop
+  - Before: `<Resize snap={{ increment: 40 }} />`
+  - After: `<Resize snapIncrement={40} />`
+
+- **Removed snap threshold**: Grid snapping now always snaps to the nearest grid point without a threshold distance
+  - This provides more predictable behavior aligned with design tools
+  - The panel will always align to grid multiples when `snapIncrement` is set
+
+### Migration
+
+To update from v0.2.0:
+- Replace `snap={{ increment: X }}` with `snapIncrement={X}`
+- Remove any `threshold` values as they are no longer supported
