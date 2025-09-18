@@ -129,3 +129,32 @@ To update from v0.2.0:
 
 To update from v0.3.0:
 - Replace `preset="professional"` with `preset="smooth"`
+
+## v1.0.0 (2024-09-18)
+
+### 🎉 First Stable Release
+
+resz is now stable and production-ready! This release marks the completion of the core API and the launch of the visual playground.
+
+### Major Features
+- **Spring Physics**: Natural, momentum-based resizing that feels right
+- **Visual Playground**: Configure and preview your resize behavior visually
+- **Minimal API**: Simple, intuitive props that are discoverable through TypeScript
+- **Flexible Styling**: Full control over handle appearance with render props
+- **Performance**: Consistent 60fps animations
+- **Small Bundle**: 3.5kb gzipped with no runtime dependencies
+
+### What's Included
+- Three physics presets: gentle, smooth, and snappy
+- Eight-directional resizing (n, s, e, w, ne, nw, se, sw)
+- Constraints system (min/max dimensions, aspect ratio)
+- Grid snapping
+- Custom handle rendering
+- Full TypeScript support
+
+### Documentation
+- New minimal README inspired by Basement Studio
+- Visual configurator at [playground link]
+- Comprehensive TypeScript definitions
+
+The API is now stable. Future updates will maintain backward compatibility.

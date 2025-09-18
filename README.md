@@ -1,141 +1,110 @@
 # resz
 
-<div align="center">
-  <h3>Spring Physics Resizing for React</h3>
-  <p>Smooth, natural resizing that feels physical and responsive</p>
-</div>
-
-<br/>
-
-`resz` brings physical, spring-based resizing to React components. Unlike CSS transitions, it provides natural, momentum-based interactions that respond to user input in real-time. Perfect for editors, panels, and any UI that needs premium-feeling resize interactions.
-
-## Why resz?
-
-- **🎯 Natural Feel**: Spring physics creates organic, responsive motion that traditional CSS transitions can't match
-- **⚡️ 60fps Performance**: Optimized animation loop ensures smooth resizing even during rapid interactions
-- **🎨 Customizable Physics**: Fine-tune spring parameters (tension, friction, mass) or use presets for the perfect feel
-- **📐 Multi-directional**: Resize from any edge or corner with proper cursor indicators
-- **🔒 Smart Constraints**: Set min/max dimensions and maintain aspect ratios effortlessly
-- **📍 Grid Snapping**: Optional grid alignment for pixel-perfect layouts
-- **💅 Flexible Styling**: Style handles with CSS or provide custom React components
-
-## Quick Start
+Spring-based resizing for React. 
+[**Try it live →**](https://resz.mehdib.me/)
 
 ```bash
 npm install resz
 ```
 
 ```jsx
-import { Resize } from 'resz'
-import 'resz/dist/style.css'
+import { Resize, Handle } from 'resz'
 
-function App() {
-  return (
-    <Resize preset="smooth">
-      <Resize.Panel>
-        <div>Resizable Content</div>
-      </Resize.Panel>
-      <Resize.Handle dir="se" />
-    </Resize>
-  )
-}
+<Resize>
+  <div>Your content</div>
+  <Handle dir="se" />
+</Resize>
 ```
 
-## Spring Physics Presets
+## Why
 
-Choose from three carefully tuned presets or customize your own:
+Making spring animations for resize animations can be pretty long. Or at least that how it felt for me as a designer. 
+So here is something that can help you have something that feels right, quickly and with a visual configurator: _________ (This will be the link to the visual configurator)
 
-- **gentle**: Soft, smooth motion with less resistance
-- **smooth**: Balanced feel for precise control (default)
-- **snappy**: Quick response with minimal oscillation
+**resz** uses real spring physics. The same mental model you have when you pull and release something in the physical world. You can personalize it the way your interface needs to be.
+
+## Presets
+
+Three presets, carefully tuned:
+
+- `gentle` — Soft, graceful
+- `smooth` — Balanced, default
+- `snappy` — Quick, responsive
 
 ```jsx
-// Using a preset
-<Resize preset="smooth" />
-
-// Custom physics
-<Resize config={{ tension: 170, friction: 26, mass: 1 }} />
+<Resize preset="snappy">
+  <Editor />
+</Resize>
 ```
 
-## Advanced Usage
-
-### Custom Handles
-
-Style handles with CSS or provide your own components:
+Or tune your own physics:
 
 ```jsx
-// CSS styling
-<Resize.Handle 
-  dir="se" 
-  style={{ 
-    background: 'white',
-    borderRadius: 4,
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-  }} 
-/>
-
-// Custom component
-<Resize.Handle
-  dir="se"
-  render={({ active }) => (
-    <div className={active ? 'handle-active' : 'handle'}>
-      <DragIcon />
-    </div>
-  )}
+<Resize 
+  config={{ 
+    tension: 170, 
+    friction: 26, 
+    mass: 1 
+  }}
 />
 ```
 
-### Constraints & Grid Snapping
+## Constraints
 
-Keep dimensions within bounds and snap to a grid:
+Keep things in check:
 
 ```jsx
 <Resize
   constraints={{
-    min: { width: 200, height: 150 },
-    max: { width: 800, height: 600 },
+    min: { width: 200 },
+    max: { width: 800 },
     aspectRatio: 16/9
   }}
-  snapIncrement={40}  // Always snap to 40px grid
 />
 ```
 
-## API Reference
+## Grid
 
-### Resize Component
+Snap to grid, always:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `initialWidth` | number | `300` | Initial width in pixels |
-| `initialHeight` | number | `200` | Initial height in pixels |
-| `preset` | "gentle" \| "smooth" \| "snappy" | "smooth" | Spring physics preset |
-| `config` | { tension: number, friction: number, mass: number } | - | Custom spring configuration |
-| `constraints` | { min?: { width?: number, height?: number }, max?: { width?: number, height?: number }, aspectRatio?: number } | - | Size constraints |
-| `snapIncrement` | number | - | Grid size for snapping (e.g., 40 for 40px grid) |
-| `style` | CSSProperties | - | Container styles |
-| `onResize` | (width: number, height: number, isDragging: boolean) => void | - | Resize callback |
-
-### Handle Component
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `dir` | "n" \| "s" \| "e" \| "w" \| "ne" \| "nw" \| "se" \| "sw" | Handle direction |
-| `style` | CSSProperties | Handle styles |
-| `render` | (props: { active: boolean }) => ReactNode | Custom render function |
-
-## Local Development
-
-Test the package locally:
-
-```bash
-# In the resz directory
-npm run build
-npm link
-
-# In your project directory
-npm link resz
+```jsx
+<Resize snapIncrement={40} />
 ```
 
-## License
+## Handles
 
-MIT © [Mehdi Bouakkadia](https://github.com/mehdibouakkadia)
+Use ours or bring your own:
+
+```jsx
+// Any direction
+<Handle dir="n" />
+<Handle dir="e" />
+<Handle dir="se" />
+
+// Your own style
+<Handle 
+  dir="se"
+  render={({ active, dragging }) => (
+    <motion.div 
+      className={cn(
+        "w-3 h-3 rounded-full bg-white shadow-sm",
+        active && "scale-110",
+        dragging && "bg-blue-500"
+      )}
+      whileHover={{ scale: 1.2 }}
+      transition={{ type: "spring", stiffness: 400 }}
+    />
+  )}
+/>
+```
+
+## Details
+
+- 60fps performance
+- 3.5kb gzipped
+- Fully typed
+- No runtime dependencies
+
+---
+
+[Demo](https://resz.mehdib.me/) · [GitHub](https://github.com/mehdibouakkadia/resz) · [Mehdi Bouakkadia](https://github.com/mehdibouakkadia)
