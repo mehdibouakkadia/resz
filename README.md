@@ -66,13 +66,6 @@ Keep things in check:
 />
 ```
 
-## Grid
-
-Snap to grid, always:
-
-```jsx
-<Resize snapIncrement={40} />
-```
 
 ## Handles
 

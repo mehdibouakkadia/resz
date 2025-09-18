@@ -56,7 +56,6 @@ export type ResizeProps = {
   config?: SpringConfig
   preset?: ResizePreset
   constraints?: Constraints
-  snapIncrement?: number
   onResize?: (dims: Dimensions) => void
 }
 

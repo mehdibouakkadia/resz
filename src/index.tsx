@@ -78,29 +78,6 @@ function applyConstraints(
   return [w, h]
 }
 
-function findSnapPoint(value: number, points: number[] = [], increment?: number): number {
-  // Check snap points first (exact snap points take priority)
-  if (points.length > 0) {
-    let minDiff = Infinity
-    let closestPoint = value
-    
-    for (const point of points) {
-      const diff = Math.abs(value - point)
-      if (diff < minDiff) {
-        minDiff = diff
-        closestPoint = point
-      }
-    }
-    return closestPoint
-  }
-
-  // Check grid increment
-  if (increment && increment > 1) {
-    return Math.round(value / increment) * increment
-  }
-
-  return value
-}
 
 export function Resize({
   children,
@@ -111,7 +88,6 @@ export function Resize({
   config,
   preset = 'smooth',
   constraints,
-  snapIncrement,
   onResize,
 }: ResizeProps) {
   const frameRef = useRef<number | null>(null)
@@ -267,22 +243,8 @@ export function Resize({
         newH = dragStartRef.current.targetH - dy
       }
 
-      // Apply grid snapping
-      if (snapIncrement) {
-        const snapW = findSnapPoint(newW, [], snapIncrement)
-        const snapH = findSnapPoint(newH, [], snapIncrement)
-        
-        if (snapW !== newW) {
-          stateRef.current.width.velocity = 0 // Reset velocity for snappy feel
-          newW = snapW
-        }
-        if (snapH !== newH) {
-          stateRef.current.height.velocity = 0 // Reset velocity for snappy feel
-          newH = snapH
-        }
-      }
 
-      // Apply constraints after snapping
+      // Apply constraints
       [newW, newH] = applyConstraints(newW, newH, constraints)
 
       stateRef.current.width.target = newW
