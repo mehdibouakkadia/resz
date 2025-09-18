@@ -3,9 +3,8 @@
 Spring-based resizing for React. 
 [**Try it live →**](https://resz.mehdib.me/)
 
-[![npm version](https://img.shields.io/npm/v/resz.svg?style=flat&colorA=18181B&colorB=28CF8D)](https://www.npmjs.com/package/resz)
-[![minzipped size](https://img.shields.io/bundlephobia/minzip/resz?style=flat&colorA=18181B&colorB=28CF8D)](https://bundlephobia.com/package/resz)
-[![license](https://img.shields.io/github/license/mehdibouakkadia/resz.svg?style=flat&colorA=18181B&colorB=28CF8D)](https://github.com/mehdibouakkadia/resz/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/resz.svg?style=flat&colorA=18181B&colorB=E5E5E5)](https://www.npmjs.com/package/resz)
+[![minzipped size](https://img.shields.io/bundlephobia/minzip/resz?style=flat&colorA=18181B&colorB=E5E5E5)](https://bundlephobia.com/package/resz)
 
 ```bash
 npm install resz
