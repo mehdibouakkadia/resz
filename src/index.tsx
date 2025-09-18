@@ -269,8 +269,8 @@ export function Resize({
 
       // Apply grid snapping
       if (snapIncrement) {
-        const snapW = findSnapPoint(newW, undefined, snapIncrement)
-        const snapH = findSnapPoint(newH, undefined, snapIncrement)
+        const snapW = findSnapPoint(newW, [], snapIncrement)
+        const snapH = findSnapPoint(newH, [], snapIncrement)
         
         if (snapW !== newW) {
           stateRef.current.width.velocity = 0 // Reset velocity for snappy feel
