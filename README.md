@@ -3,6 +3,10 @@
 Spring-based resizing for React. 
 [**Try it live →**](https://resz.mehdib.me/)
 
+[![npm version](https://img.shields.io/npm/v/resz.svg?style=flat&colorA=18181B&colorB=28CF8D)](https://www.npmjs.com/package/resz)
+[![minzipped size](https://img.shields.io/bundlephobia/minzip/resz?style=flat&colorA=18181B&colorB=28CF8D)](https://bundlephobia.com/package/resz)
+[![license](https://img.shields.io/github/license/mehdibouakkadia/resz.svg?style=flat&colorA=18181B&colorB=28CF8D)](https://github.com/mehdibouakkadia/resz/blob/main/LICENSE)
+
 ```bash
 npm install resz
 ```
@@ -19,7 +23,7 @@ import { Resize, Handle } from 'resz'
 ## Why
 
 Making spring animations for resize animations can be pretty long. Or at least that how it felt for me as a designer. 
-So here is something that can help you have something that feels right, quickly and with a visual configurator: _________ (This will be the link to the visual configurator)
+So here is something that can help you have something that feels right, quickly and with a visual configurator: https://resz.mehdib.me/
 
 **resz** uses real spring physics. The same mental model you have when you pull and release something in the physical world. You can personalize it the way your interface needs to be.
 
